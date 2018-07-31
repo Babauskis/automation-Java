@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import general.User;
 import pages.signup.SignUpPageObject;
 
@@ -41,4 +42,19 @@ public class SignupSteps {
         signup.enterConfirmPassword(user.getPassword());
     }
 
+    @Then("^I click Sign Up button$")
+    public void iClickSignUpButton() throws Throwable {
+        signup.selectSignUpButton();
+    }
+
+    @And("^I create new account$")
+    public void iCreateNewAccount() throws Throwable {
+        iEnterFirstName();
+        iEnterLastName();
+        iEnterMobileNumber();
+        iEnterEmailAddress();
+        iEnterPassword();
+        iConfirmPassword();
+        iClickSignUpButton();
+    }
 }
